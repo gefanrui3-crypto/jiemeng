@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>解梦 Jiemeng · 隐私政策 / Privacy Policy</title>
+<style>
+  :root{--ink:#14161a;--ink2:#3d4450;--ink3:#8b929e;--line:#e6e8ec;--accent:#b4472a}
+  *{box-sizing:border-box}
+  body{margin:0;background:#fbfbfa;color:var(--ink);
+    font:16px/1.8 -apple-system,"Segoe UI","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 24px 100px}
+  h1{font-size:30px;margin:0 0 6px;letter-spacing:-.02em}
+  .meta{color:var(--ink3);font-size:13px;margin-bottom:36px}
+  h2{font-size:19px;margin:40px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  h3{font-size:15px;margin:22px 0 6px}
+  p,li{color:var(--ink2)}
+  ul{padding-left:22px}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px}
+  th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3);
+    border-bottom:2px solid var(--ink);padding:9px 10px}
+  td{border-bottom:1px solid var(--line);padding:10px;vertical-align:top}
+  td:first-child{font-weight:600;white-space:nowrap;color:var(--ink)}
+  code{background:#eef0f3;padding:1px 5px;border-radius:4px;font-size:13.5px}
+  a{color:#b4472a;text-decoration:none;border-bottom:1px solid rgba(180,71,42,.35)}
+  a:hover{border-bottom-color:#b4472a}
+  .box{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:20px 0}
+  .en{border-top:1px solid var(--line);margin-top:56px;padding-top:32px}
+  footer{margin-top:56px;font-size:13px;color:var(--ink3)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>解梦 Jiemeng · 隐私政策</h1>
+<div class="meta">生效日期：2026-10-30 · 适用版本：0.2.0 及以后 · 最后更新：2026-10-30</div>
+
+<div class="box">
+  <strong>一句话说明：</strong>解梦没有自己的服务器。你的图片和 API Key 只在你自己的浏览器与你自己填写的接口之间流动，
+  我们既没有账号系统，也没有任何数据上报。
+</div>
+
+<h2>1. 我们收集什么</h2>
+<p><strong>不收集。</strong>解梦没有后端服务、没有账号体系、没有埋点统计、没有崩溃上报。开发者无法知道你是否安装了它、用了多少次、分析了什么图。</p>
+
+<h2>2. 数据存在哪里</h2>
+<p>全部存在你自己浏览器的 <code>chrome.storage.local</code> 里，卸载扩展即清除，不跨设备同步。</p>
+<table>
+  <tr><th>数据</th><th>内容</th><th>用途</th></tr>
+  <tr><td>接口配置</td><td>接口地址、API Key、模型名</td><td>调用你自己指定的模型服务</td></tr>
+  <tr><td>历史记录</td><td>最近 50 条解析结果、来源网址</td><td>方便回看；同一张图二次悬停时直接复用，避免重复调用</td></tr>
+  <tr><td>设置项</td><td>悬停开关、图片尺寸、温度</td><td>保持你的使用习惯</td></tr>
+</table>
+<p>API Key 只以明文形式保存在上述本地存储中，<strong>不会被发送到开发者或任何第三方</strong>，只作为请求头发送给你自己填写的那个接口。</p>
+
+<h2>3. 图片去哪了</h2>
+<p>当你使用图片反推功能时，扩展会在本地把图片压缩、转成 base64，然后<strong>直接发送到你在设置中填写的模型接口</strong>。这条链路是浏览器直连，不经过任何中间服务器。</p>
+<p>该接口由你自己选择并配置（例如 Agnes、OpenAI 或其他兼容服务）。图片在这些服务商处的处理方式，适用<strong>该服务商自己的隐私政策</strong>，不在本政策覆盖范围内。建议上传前自行判断是否包含敏感信息。</p>
+
+<h2>4. 权限用途</h2>
+<table>
+  <tr><th>权限</th><th>为什么需要</th></tr>
+  <tr><td><code>host_permissions: &lt;all_urls&gt;</code></td><td>需要在任意网页上读取图片资源、并截取你框选的画面区域。仅在触发操作时使用。</td></tr>
+  <tr><td><code>scripting</code> / <code>activeTab</code></td><td>在你框选区域时注入覆盖层、调用标签页截图。</td></tr>
+  <tr><td><code>storage</code></td><td>保存配置与本地历史。</td></tr>
+  <tr><td><code>clipboardWrite</code></td><td>把生成的 Prompt 复制到剪贴板。</td></tr>
+  <tr><td><code>contextMenus</code></td><td>在图片右键菜单里提供入口。</td></tr>
+  <tr><td><code>alarms</code></td><td>定期清理过期的本地索引。</td></tr>
+</table>
+<p>扩展不读取、不记录你的浏览历史、密码、表单内容或键盘输入。</p>
+
+<h2>5. 第三方</h2>
+<p>本扩展不集成任何分析、广告或追踪 SDK，也不向任何第三方传输数据——除了你自己配置的那个模型接口。</p>
+
+<h2>6. 儿童</h2>
+<p>本扩展不面向 13 岁以下儿童，也不会有意收集其信息。</p>
+
+<h2>7. 变更</h2>
+<p>政策如有修改，会更新本页顶部的日期。涉及数据处理方式的实质变更会在扩展更新说明中提示。</p>
+
+<h2>8. 联系</h2>
+<p>问题或数据相关请求请联系：<strong><a href="https://github.com/gefanrui3-crypto">github.com/gefanrui3-crypto</a></strong>。在该主页提交 Issue 即可，通常一周内回复。</p>
+
+<!-- ================= English ================= -->
+<div class="en">
+<h1 style="font-size:24px">Privacy Policy (English)</h1>
+<div class="meta">Effective: 2026-10-30 · Applies to version 0.2.0 and later</div>
+
+<p><strong>Short version:</strong> Jiemeng has no server. Your images and API key only travel between your own browser and the model endpoint you configure. There is no account system and no telemetry.</p>
+
+<h2>1. What we collect</h2>
+<p>Nothing. There is no backend, no account, no analytics, and no crash reporting. The developer cannot tell whether you installed the extension or how you use it.</p>
+
+<h2>2. Where data is stored</h2>
+<p>Everything stays in your browser's <code>chrome.storage.local</code> and is removed when you uninstall the extension. It is never synced across devices.</p>
+<ul>
+  <li><strong>Endpoint settings</strong> — endpoint URL, API key, model name, used only to call the service you configured.</li>
+  <li><strong>History</strong> — the latest 50 analyses plus their source URLs, so a second hover on the same image does not call the API again.</li>
+  <li><strong>Preferences</strong> — hover toggle, image size, temperature.</li>
+</ul>
+<p>Your API key is stored locally in plain text and is <strong>never sent to the developer or any third party</strong>. It is only used as an authorization header for the endpoint you entered.</p>
+
+<h2>3. Where your images go</h2>
+<p>When you analyze an image, the extension compresses and base64-encodes it locally, then sends it <strong>directly to the model endpoint you configured</strong>. This is a direct browser-to-provider request with no intermediary.</p>
+<p>That provider's own privacy policy governs how it handles your images. Please consider whether an image contains sensitive content before analyzing it.</p>
+
+<h2>4. Permissions</h2>
+<p><code>host_permissions</code> is required to read image resources on any page and to capture the region you select; <code>scripting</code> and <code>activeTab</code> power the selection overlay and tab capture; <code>storage</code> holds settings and local history; <code>clipboardWrite</code> copies the generated prompt; <code>contextMenus</code> adds the right-click entry; <code>alarms</code> prunes stale local indexes.</p>
+<p>The extension does not read or record your browsing history, passwords, form input, or keystrokes.</p>
+
+<h2>5. Third parties</h2>
+<p>No analytics, advertising, or tracking SDKs are bundled. No data is transmitted to any third party other than the model endpoint you configure yourself.</p>
+
+<h2>6. Children</h2>
+<p>Not directed to children under 13, and no such data is knowingly collected.</p>
+
+<h2>7. Changes</h2>
+<p>Any change updates the date at the top of this page. Material changes to data handling will be noted in the extension's release notes.</p>
+
+<h2>8. Contact</h2>
+<p><strong><a href="https://github.com/gefanrui3-crypto">github.com/gefanrui3-crypto</a></strong> — open an issue on that profile. Replies usually within a week.</p>
+</div>
+
+<footer>解梦 Jiemeng · 一个没有服务器的图片反推提示词工具</footer>
+</div>
+</body>
+</html>
